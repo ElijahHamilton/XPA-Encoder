@@ -5,6 +5,7 @@ prereqs: sox
 
 run:
 git clone "https://github.com/Tails98/XPA-Encoder.git"
+
 sudo apt-get install sox
 
 # TODO
