@@ -1,17 +1,19 @@
 # XPA-Encoder
 A 10 baud XPA encoder.
 
-prereqs: sox
+prereqs: aplay
 
 run:
 
 git clone "https://github.com/Tails98/XPA-Encoder.git"
 
-sudo apt-get install sox
+chmod +x tx rx
 
-chmod +x tx  (in both soundcard and wave file directories)
+./tx id message
 
-./tx
+# Encoding
+./tx id message
 
-# TODO
-Make GUI, add 20 baud encoder.
+id format: 3 digits. EX: 456
+
+message format: 5 digits each. seperated by a _. EX: 12345_67890
