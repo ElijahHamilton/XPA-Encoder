@@ -1,0 +1,183 @@
+if test -z "$1" 
+then
+echo usage: ./tx id message
+else
+rm list
+rm input1.raw
+rm input2.raw
+rm input3.raw
+rm output.raw
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo B.raw >> list
+echo M.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+echo 1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+echo 1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+ID1=$(echo $1 | cut -c1)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c2)
+echo $ID1.raw >> list
+ID1=$(echo $1 | cut -c3)
+echo $ID1.raw >> list
+echo _.raw >> list
+echo 1.raw >> list
+echo _.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo S.raw >> list
+echo B.raw >> list
+echo M.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo P.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+PLA2=`cat list`
+PLA3=${PLA2::-5}
+cat $PLA3 > input1.raw
+rm list
+LEN=${#2}
+NUM=1
+for i in `seq $LEN` :
+               do
+                   PLA1=$(echo $2 | cut -c$NUM)
+                   echo $PLA1.raw >> list
+                   NUM2=$(( $NUM + 1))
+                   NUM=$NUM2
+done
+PLA2=`cat list`
+PLA3=${PLA2::-5}
+cat $PLA3 > input2.raw
+rm list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+echo E.raw >> list
+PLA2=`cat list`
+PLA3=${PLA2::-5}
+cat $PLA3 > input3.raw
+cat input1.raw input2.raw input3.raw > output.raw
+clear
+echo start transmitting!
+aplay -q -t raw -c 1 -r 8000 -f S16_LE output.raw
+rm list
+rm input1.raw
+rm input2.raw
+rm input3.raw
+rm output.raw
+clear
+echo done transmitting!
+fi
