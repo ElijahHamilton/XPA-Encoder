@@ -1,0 +1,55 @@
+if test -z "$1" 
+then
+echo usage: ./tx message
+else
+rm list
+rm input1.raw
+rm input2.raw
+rm input3.raw
+rm output.raw
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo L.raw >> list
+echo B.raw >> list
+echo S.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+echo _.raw >> list
+PLA2=`cat list`
+PLA3=${PLA2::-5}
+cat $PLA3 > input1.raw
+rm list
+LEN=${#1}
+NUM=1
+for i in `seq $LEN` :
+               do
+                   PLA1=$(echo $1 | cut -c$NUM)
+                   echo $PLA1.raw >> list
+                   NUM2=$(( $NUM + 1))
+                   NUM=$NUM2
+done
+PLA2=`cat list`
+PLA3=${PLA2::-5}
+cat $PLA3 > input2.raw
+cat input1.raw input2.raw E.raw > output.raw
+clear
+echo start transmitting!
+aplay -q -t raw -c 1 -r 8000 -f S16_LE output.raw
+rm list
+rm input1.raw
+rm input2.raw
+rm input3.raw
+rm output.raw
+clear
+echo done transmitting!
+fi
