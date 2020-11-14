@@ -1,4 +1,4 @@
-# XPA-Encoder
+# XPA/XPA2-Encoder
 A 10 baud XPA encoder.
 
 prereqs: aplay
@@ -9,10 +9,13 @@ git clone "https://github.com/Tails98/XPA-Encoder.git"
 
 chmod +x tx rx
 
+for XPA:
 ./tx id message
 
+for XPA2:
+./tx message
+
 # Encoding
-./tx id message
 
 id format: 3 digits. EX: 456
 
