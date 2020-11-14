@@ -1,5 +1,5 @@
 # XPA/XPA2-Encoder
-A 10 baud XPA encoder.
+A XPA/XPA2 encoder.
 
 prereqs: aplay
 
